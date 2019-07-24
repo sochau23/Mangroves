@@ -61,11 +61,10 @@ newfile<-semi_join(globalindex,top15, by=NULL)
    
 ```
 
-
 ```{r}
 head(newfile)
 ```
-To safe our new beautiful file :) 
+To save our new beautiful file :) 
 ```{r}
 write.csv(newfile,"GBEI/top15GBEI.csv")
   
