@@ -1,0 +1,73 @@
+---
+title: "Data cleaning gbi"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "/nfs/mangrovesglobalization-data")# this is another option to change directory
+```
+
+## We change the directory in the console by 
+
+```{r}
+setwd("/nfs/mangrovesglobalization-data") # this connects our cloudbase folder with R 
+```
+
+## read the file
+
+```{r}
+globalindex<-read.csv("GBEI/indicator.csv", header=TRUE, na.strings="")#to read the file
+```
+Let's look at it
+```{r}
+head(globalindex)
+```
+```{r}
+countries<-read.csv("GBEI/country_codes.csv", header=TRUE, na.strings="")#to read the file
+```
+
+Table with top 15 countries
+```{r}
+top15 <-read.csv("GBEI/top15.csv",header=TRUE,na.strings = "")
+```
+
+filter using top15
+  
+```{r}
+library(dplyr)
+```
+changing country column name for code in global index
+```{r}
+globalindex<-globalindex%>%
+  rename(country_code=country)
+```
+
+```{r}
+globalindex<-globalindex%>%
+  rename(country=fullname)
+```
+
+rename country again in top 15
+```{r}
+top15<-top15%>%
+  rename(country=Country)
+```
+
+Now I will try to join those two tables to get only information for the top 15 countries
+
+```{r}
+newfile<-semi_join(globalindex,top15, by=NULL)
+   
+```
+
+
+```{r}
+head(newfile)
+```
+To safe our new beautiful file :) 
+```{r}
+write.csv(newfile,"GBEI/top15GBEI.csv")
+  
+```
+
