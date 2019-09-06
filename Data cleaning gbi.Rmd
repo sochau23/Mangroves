@@ -1,6 +1,6 @@
 ---
 title: "Data cleaning gbi"
-output: html_document
+output: ioslides_presentation
 ---
 
 ```{r setup, include=FALSE}
@@ -9,6 +9,7 @@ knitr::opts_knit$set(root.dir = "/nfs/mangrovesglobalization-data")# this is ano
 ```
 
 ## We change the directory in the console by 
+
 
 ```{r}
 setwd("/nfs/mangrovesglobalization-data") # this connects our cloudbase folder with R 
