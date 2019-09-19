@@ -1,6 +1,6 @@
 ---
 title: "Data cleaning gbi"
-output: html_document
+output: ioslides_presentation
 ---
 setwd("/nfs/mangrovesglobalization-data)
 ```{r setup, include=FALSE}
@@ -10,6 +10,7 @@ knitr::opts_knit$set(root.dir = "/nfs/mangrovesglobalization-data")# this is ano
 
 ## We change the directory in the console by 
 xx
+
 
 ```{r}
 setwd("/nfs/mangrovesglobalization-data") # this connects our cloudbase folder with R 
@@ -69,5 +70,7 @@ To save our new beautiful file :)
 ```{r}
 write.csv(newfile,"GBEI/top15GBEI.csv")
   
+
+
 ```
 
